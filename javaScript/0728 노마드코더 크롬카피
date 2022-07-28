@@ -1,0 +1,15 @@
+1. Form 규칙
+Form 안에서 엔터를 누르고 input 이 더 존재하지 않으면
+자동으로 submit 됨
+
+2. Js 기능 - toggle
+대상이 있는지 확인해서 있으면 없애고 없으면 추가함
+아래 예시는 target의 클래스 목록에 heyClass 가 있으면
+제거하고 없으면 추가함
+
+예) 
+const target = document.querySelctor('#loginForm input');
+function heyFunc (){
+ target.classList.toggle("heyClass")
+}
+target.addEventListener("click", heyFunc);
