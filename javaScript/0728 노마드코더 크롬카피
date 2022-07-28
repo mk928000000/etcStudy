@@ -1,5 +1,5 @@
 1. Form 규칙
-Form 안에서 엔터를 누르고 input 이 더 존재하지 않으면
+Form 안에서 버튼을 누르거나 엔터를 칠때 input 이 더 존재하지 않으면
 자동으로 submit 됨
 
 2. Js 기능 - toggle
