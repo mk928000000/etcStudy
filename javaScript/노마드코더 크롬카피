@@ -8,7 +8,7 @@ Form 안에서 버튼을 누르거나 엔터를 칠때 input 이 더 존재하�
    전달하지 않으면 js로 부터 자동으로 정보를 받게된다.
    이 정보의 함수 중 preventDefault() 를 사용해 자동 refresh 를 막을 수 있다.
 
-예) 
+예 ) 
 const loginForm = document.querySelector("#login-form");
 
 function onLoginSubmit(e){
