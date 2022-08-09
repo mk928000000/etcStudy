@@ -14,7 +14,6 @@ function deleteToDo(e){
     const targetId = e.target.parentElement.id;
     const targetNode = document.getElementById(targetId);
     targetNode.remove();
-    
 }
 
 function paintToDo(newToDo){
