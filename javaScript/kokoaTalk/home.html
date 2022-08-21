@@ -2,27 +2,50 @@
 <html lang="en">
 <head>
     <title>My first website</title>
-    <link rel="stylesheet" href="styles.css">    
-    <style>
-        h1{
-            
-        }
-    </style>
+    <!-- <link rel="stylesheet" href="styles.css">     -->
     <meta charset="UTF-8">
     <meta name="description" content="This is website">
+    <style>
+        body{
+            height: 100vh;
+            margin: 20px;
+            display: flex;
+            justify-content: space-between; 
+            /* align-items: stretch; -- 자식ele의 높이를 없애줘야 적용됨*/ 
+            flex-wrap: wrap-reverse;
+            flex-direction: row-reverse;   
+            align-items: center;
+        }
+        div{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           width: 300px;
+           height: 300px;
+           background-color: teal;
+        }
+        /* flex box !!!
+           RULE1. 자식 ele에는 아무것도 적지 않는다. 부모 ele에만 말한다!
+            아래 div 3개를 가리키는 자식 ele 를 움직이고싶다면,
+            div 가 아닌, 부모인 body 에 말한다.
+            
+            justify-content : 주축 main axis(가로축) 적용
+            align-items : 교차축 cross axis(세로축) 적용 --높이 필요
+
+            100vh : viewport height (screen height) = 100% screen
+                    px은 화면 크기에 따라 달라지므로 vh 를 써준다
+
+            flex-direction: 기본적으로 row. column 이 되면 주축이 가로가 아니라 세로가 된다
+
+        */
+        #second {
+            background-color: wheat;
+        }
+    </style>
 </head>
 <body>
-    <p>2 <sup>5</sup></p>
-    <audio controls autoplay src=""></audio>
-    <form action="">
-        <lable for="profile">profile Photo</lable>
-        <input type="file" name="" id="profile" accept=""/>
-
-        <label for="website">website</label>
-        <input id="website" required placeholder="Name" type="email"/>
-
-        <input type="submit" value="Create Account">
-    </form>
-
+    <div>1</div>
+    <div id="second">2</div>
+    <div>3</div>
 </body>
 </html>
