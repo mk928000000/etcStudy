@@ -6,6 +6,74 @@
     <meta charset="UTF-8">
     <meta name="description" content="This is website">
     <style>
+       
+        /* =====================flex box !!!=====================
+           [RULE] 자식 ele에는 아무것도 적지 않는다. 부모 ele에만 말한다!
+                아래 div 3개를 가리키는 자식 ele 를 움직이고싶다면,
+                div 가 아닌, 부모인 body 에 말한다.
+                
+                justify-content : 주축 main axis(가로축) 적용
+                align-items : 교차축 cross axis(세로축) 적용 --높이 필요
+
+                100vh : viewport height (screen height) = 100% screen
+                        px은 화면 크기에 따라 달라지므로 vh 를 써준다
+
+                flex-direction: 기본적으로 row. column 이 되면 주축이 가로가 아니라 세로가 된다
+
+            [display flex 사용 시 주요 세트]
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap-reverswe;
+                flex-direction: row;
+
+            ===================== position fixed=====================
+            [RULE] position이 fixed되는 자리는 레이아웃 상에서 그려진 첫번째 위치.
+                이걸 쓰면 block 이던 margin이던 상관하지 않음. 먼저 있던 것과 다른 레이어에 존재하게 됨.
+                시작 위치를 바꿔주고 싶다면 아래 중 하나로 위치를 써주면 됨.
+                position: fixed;
+                top: 5px;
+                left: ~
+                right:~
+                bottom: ~
+            
+            ===================== position relative===================
+            화면상 보이는 처음 위치를 기준으로 수정하는 것.
+            position: relative;
+            top: -10px;
+            left: ~
+            right: ~   
+            bottom:~
+
+            ===================== position absolute ==================
+            가장 가까운  position relative 부모를 기준으로 이동시킴.
+            .green div의 부모는 div 이지만 position relative가 아님. 그러므로 위치기준은 부모인 div 가 아니라 body가 됨.
+
+            .green {
+                height: 300px;
+                width: 300px;
+                background-color: teal;
+                position: absolute;   
+            }
+
+            ===================== first-child, nth-child, last-child ==
+            span:nth-child(2n+3){
+                background-color: tomato;
+            }
+            span:nth-child(odd){
+                background-color: wheat;
+            }
+
+            ===================== div >span 바로 밑의 한개만(direct child) 선택==
+            div > span{
+                text-decoration: underline;
+            }
+
+            ===================== p + span 바로 옆의 한개만 (next to) 선택 ======
+            p + span {
+                text-decoration: underline;
+            }
+        */
         body{
             height: 100vh;
             margin: 20px;
@@ -24,28 +92,11 @@
            height: 300px;
            background-color: teal;
         }
-        /* flex box !!!
-           RULE1. 자식 ele에는 아무것도 적지 않는다. 부모 ele에만 말한다!
-            아래 div 3개를 가리키는 자식 ele 를 움직이고싶다면,
-            div 가 아닌, 부모인 body 에 말한다.
-            
-            justify-content : 주축 main axis(가로축) 적용
-            align-items : 교차축 cross axis(세로축) 적용 --높이 필요
-
-            100vh : viewport height (screen height) = 100% screen
-                    px은 화면 크기에 따라 달라지므로 vh 를 써준다
-
-            flex-direction: 기본적으로 row. column 이 되면 주축이 가로가 아니라 세로가 된다
-
-        */
-        #second {
-            background-color: wheat;
-        }
     </style>
 </head>
 <body>
-    <div>1</div>
-    <div id="second">2</div>
-    <div>3</div>
+    <div><span>hello</span></div>
+    <p>paragraph</p>
+    <span>A-yo</span>
 </body>
 </html>
