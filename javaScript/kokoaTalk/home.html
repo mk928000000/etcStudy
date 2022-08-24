@@ -73,6 +73,54 @@
             p + span {
                 text-decoration: underline;
             }
+
+            ===================== p ~ span 형제관계에 있는 span 선택( siblling) ===================== 
+            바로 옆이 아니어도 같은 라인에 있는 형제관계의 모든 span 선택
+            p ~ span{
+                text-decoration: underline;
+            }
+
+            ===================== 태그 option으로 선택 ===================== 
+            required 옵션을 가진 input 을 선택
+            input: required {
+                border: 1px solid tomato;
+            }
+
+            ===================== attribute 로 선택 ===================== 
+            type 이 password 인 input 만 선택
+            input[type="password"]{
+                background-color : pink;
+            }
+
+            ===================== attribute 에서 선택하는 다양한 방법===================== 
+            1) 값에 단어가 포함되는 경우
+            ex) "first name", "last name"
+            input[placeholder~="name"]{
+                ~
+            }
+            2) 접두사 선택 : ^=
+            3) 접미사 선택 : $=
+            4) 단어 일부 포함 : *=
+            등등
+            
+            ===================== pseudo 선택자 ===================== 
+            1) :focus-within   
+                부모에게 적용된다. focused인 자식을 가진 부모요소의 상태를 말한다.
+                만약 form 안의 인풋박스 같은것에 focus 가 가면 form 의 배경색은 seagreen 으로 바뀐다.
+                form:focus-within{
+                    border-color: seagreen;
+                }
+            2) :: 두개 쓰는 선택자
+                (1) ::placeholder -> placeholder의 style 을 바꿀 수 있다.
+                (2) ::selection   -> 클릭한 상태로 드래그한 경우
+                (3) ::first-letter-> 첫 글자만 선택
+                (4) ::first-line  -> 첫 줄만 선택
+                
+
+
+
+            
+
         */
         body{
             height: 100vh;
