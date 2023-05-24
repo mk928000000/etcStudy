@@ -1,0 +1,65 @@
+nav {
+  width: 800px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: red; */
+}
+.navbar {
+  text-align: center;
+}
+
+/* .navbar 하위의 모든 li에게 스타일을 적용한다. 
+.navbar>li  .navbar의 직계자식 li 만!
+.navbar li  .navbar의 모든 li들 (자식의 자식가능)*/
+.navbar li {
+  display: inline-block;
+  background: #eee;
+  padding: 5px 20px;
+}
+.navbar a,
+a:visited,
+a:link,
+a:hover {
+  font-size: 16px;
+  /* 모든 a 태그는 밑줄이 쳐있다. 없애려면 text-decoration none! */
+  text-decoration: none;
+  color: black;
+}
+.container {
+  width: 800px;
+  height: 180px;
+  border: solid 1px #eee;
+  padding: 5px;
+  margin: 10px;
+  /* 가운데정렬 3줄 */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.blog-content {
+  width: 80%;
+  height: 170px;
+  /* background: #eee; */
+  float: left;
+}
+.blog-profile {
+  width: 50px;
+  border-radius: 50px;
+  display: block;
+  float: left;
+}
+.blog-image {
+  width: 20%;
+  height: 170px;
+  background: yellow;
+  float: left;
+}
+.blog-name {
+  float: left;
+}
+.blog-post {
+}
+.mg-8 {
+  margin: 8px;
+}

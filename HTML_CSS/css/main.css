@@ -1,0 +1,83 @@
+.container {
+  width: 800px;
+}
+.header {
+  /* %는 부모요소 기준 width 가 기준이 된다. */
+  width: 100%;
+  height: 50px;
+  background: aquamarine;
+}
+.left-menu {
+  width: 20%;
+  height: 400px;
+  background: cornflowerblue;
+  /* div 는 가로행을 모두 차지하는 display block 속성을 갖고있다.
+  그래서 float:left 로 붕 띄워서 왼쪾에 붙여준다. */
+  /* float: left; */
+
+  /* inline-block 는 block 속성과 달리 자기 크기만큼만 자리를 차지한다.  
+    문제는 
+    1. html 태그의 공백을 space 만큼 자리차지로 인식한다. 공백을 제거해줘야 나란히 붙일 수 있다. 
+    주석 활용 혹은 부모태그에 font-size:0px 을 주면 된다. 
+    2. 그러나 inline-box 안에 글을 쓰면 이상해진다. 
+    글씨에 base line (밑줄)이 존재하기 때문이다. 그럼 vertical-align: top 속성을 넣어줘야한다.
+    번거로우므로 float 속성이 나란히 붙이기 용이하다.
+  */
+  display: inline-block;
+  vertical-align: top;
+}
+.right {
+  width: 80%;
+  height: 400px;
+  background: coral;
+  /* float: left; */
+  display: inline-block;
+}
+/* 위에서 float left 를 써서 다음 요소에도 float left 가 있다. 
+이 문제는 float 다음에 오는 요소에게 clear:both 를 써 주면 float 속성이 해제된다. */
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: gray;
+  /* clear: both; */
+}
+
+.box {
+  width: 200px;
+  background: cadetblue;
+  /* 
+    div 태그는 그것 하나로는 1차원의 선 이다. 여백을 정해줘야 박스가 된다.
+    margin : 여백
+    padding : 안쪽 여백 */
+  /* margin /  margin-left  / right / top / bottom...  */
+  margin: 10px;
+  padding: 40px;
+  /* border: 4px solid black; */
+  /* border-radius: 테두리 둥글게 */
+  border-radius: 15px;
+
+  /* p,h, div는 display:block 속성을 기본으로 갖고있다.
+          가로행을 전부 차지하라는 속성!  */
+  /* display: block;  */
+  margin-left: auto;
+  margin-right: auto;
+  /* 부모에게 스타일을 주면 자식에게도  inherit 되는 속성들이 있다.
+          그래서 p 에 스타일을 안주고 div 에줘도 먹는다.
+          inherit 지원되는 스타일은 정해져있다.
+          한번에 싸잡아서 스타일 주고싶은 속성들이 주로 inherit 된다.
+          font-family, font-size, color, 이런거.. */
+  font-size: 10px;
+  color: white;
+
+  /*
+          ### 숙제 ###
+          박스에 그림자 구현하기.
+          box-shadow: offset-x | offset-y | blur-radius | spread-radius | color
+            offset-x : 그림자의 수평위치를 설정합니다. 요소로부터 떨어진 거리를 나타냅니다.
+            offset-y : 그림자의 수직위치를 설정합니다. 요소로부터 떨어진 거리를 나타냅니다.
+            blur-radius : 그림자 테두리에 흐려지는 효과를 부여합니다. 클수록 테두리가 흐려집니다.
+            spread-radius : 그림자의 크기를 설정합니다. 클수록 그림자의 크기가 커집니다.
+            color : 그림자의 색상을 설정합니다. chrome 기준으로 기본값은 black입니다. */
+
+  box-shadow: 10px 15px 5px 5px black;
+}
