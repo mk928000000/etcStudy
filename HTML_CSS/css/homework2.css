@@ -1,12 +1,19 @@
+/* ie 호환성을 위해 css 파일 맨 위에 호환성 이슈 해결부터 첨부하고 시작. 검색어) normalize.css*/
 body {
   margin: 0;
+}
+div {
+  /* 마진/패딩을 포함해 width 설정이 된다. content-box : 마진/패딩을 재외하고 width 설정이 된다. 
+     맨 위에 설정하고 시작하자. 
+  */
+  box-sizing: border-box;
 }
 
 .main-background {
   width: 50%;
   height: 500px;
-  background-image: url(/tomato.png), url(); /*배경 겹치기도 가능*/
-  background-size: contain; /* contain : 알아서 잘 넣어라 cover : 짤려도 좋으니 넣어라 */
+  background-image: url(/forest.jpg), url(); /*배경 겹치기도 가능*/
+  background-size: cover; /* contain : 알아서 잘 넣어라 cover : 짤려도 좋으니 넣어라 */
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: scroll; /* 스크롤 시 배경 위치 조정 가능 */
@@ -15,6 +22,9 @@ body {
   padding: 1px;
   position: relative;
   margin: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 .main-title {
@@ -23,37 +33,73 @@ body {
   /* margin collapse 박스 두개가 같이 있으면 (테두리가 일치하면 marign 이 합쳐지는 버그가 있다.)
     부모 요소에 1px 이라도 줘서 테두리가 달라지면 해결된다. 
   */
-  margin-top: 200px;
+  position: relative;
+  width: 300px;
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .main-content {
-  position: absolute; /* 내 원래 위치를 기준으로 잡는것! */
+  color: white;
+  position: relative; /* 내 원래 위치를 기준으로 잡는것! */
   /*top: 100px; 포지션 속성이 있어야 사용할 수 있다.*/
-  top: 100px;
   /* 가운데 오게 하기 
-    너비 설정, left, right 0 , margin auto
-    */
-  width: 300px;
+  너비 설정, left, right 0 , margin auto
+  */
+  top: 150px;
+  width: 80%;
+  max-width: 600px;
   left: 0;
   right: 0;
   margin: auto; /*margin left, right*/
 }
 .main-button {
+  /* 버튼 이동 */
   /* 좌표이동.
         1. 내 위치를 기준으로 이동할 수 있다.
         2. 공중에 떠서 이동한다. 
 
         position : absolute - 부모 태그(그 중 포지션 relative 갖고있는 태그) 기준으로 좌표 이동
+        position : relative - 내 원래 위치를 기준으로 잡는것!
         position  :static   - 위치 고정
         position  : fixed   - 현재 화면 기준 
     */
-  position: absolute; /* 내 원래 위치를 기준으로 잡는것! */
-  top: 350px;
+  position: relative;
+  top: 200px;
   /*top: 100px; 포지션 속성이 있어야 사용할 수 있다.*/
   /* 가운데 오게 하기 */
-  left: -0;
+  left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+
+  /*버튼 디자인  */
   width: 150px;
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px white;
+  background-color: transparent;
+  color: white;
+}
+
+.explain-box {
+  width: 80%;
+  max-width: 600px;
+  background-color: #eee;
+  position: relative;
+  margin: auto;
+  top: 220px;
+  padding: 10px;
+  color: #666565;
+}
+
+input[type="text"] {
+  border: 1px solid #666565;
+  border-radius: 5px;
+}
+
+form {
+  position: relative;
+  top: 260px;
 }
