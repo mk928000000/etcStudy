@@ -1,7 +1,8 @@
 <!-- 아이디 (메일주소 형식만 마스킹) -->
 <td>
   <c:set var="indexOfAt" value="${fn:indexOf(memberList.mem_id, '@') }"/>
-  <c:set var="memId" value="${fn:substringBefore(memberList.mem_id, '@')}"/>
+  <!--  <c:set var="memId" value="${fn:substringBefore(memberList.mem_id, '@')}"/>  subsbringBefore 는 target이 되는 문자가 없으면 아무것도 출력되지 않는다. -->
+  <c:set var="memId" value="${fn:split(memberList.mem_id, '@')[0]}"/>
   <c:set var="memIdLength" value="${fn:length(memId)}"/>
   <c:set var="memIdMaskingArea" value="${fn:substring(memId, 4 , memIdLength)}"/>
   <c:choose>
