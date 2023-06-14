@@ -1,0 +1,33 @@
+<!-- 아이디 (메일주소 형식만 마스킹) -->
+<td>
+  <c:set var="indexOfAt" value="${fn:indexOf(memberList.mem_id, '@') }"/>
+  <c:set var="memId" value="${fn:substringBefore(memberList.mem_id, '@')}"/>
+  <c:set var="memIdLength" value="${fn:length(memId)}"/>
+  <c:set var="memIdMaskingArea" value="${fn:substring(memId, 4 , memIdLength)}"/>
+  <c:choose>
+   <!-- 메일주소형식이면 앞의 3자리 빼고 마스킹 -->
+    <c:when test="${indexOfAt > 0 }">
+      <c:set var="memIdDomain" value="${fn:substring(memberList.mem_id,indexOfAt,fn:length(memberList.mem_id))}"/>
+      <c:choose>
+        <c:when test="${memIdLength > 3}">
+          ${fn:substring(memId, 0, 3) }
+          <!-- 모든 문자열을 *으로 변경. 띄어쓰기, 마침표, 다시 구분없어서 좋음.-->
+          ${memIdMaskingArea.replaceAll(".", "*")}
+          ${memIdDomain }
+        </c:when>
+        <c:otherwise>
+          ${memId }
+          ${memIdDomain }
+        </c:otherwise>
+      </c:choose>		
+    </c:when>
+    <!-- 메일주소형식아니면 마스킹없이 출력 -->
+    <c:otherwise>
+      ${memId }
+    </c:otherwise>
+  </c:choose>
+</td>
+<!-- 연락처 -->
+<td>
+  ${memberList.mem_hp1}-${memberList.mem_hp2.replaceAll(".","*")}-${memberList.mem_hp3} 
+</td>
