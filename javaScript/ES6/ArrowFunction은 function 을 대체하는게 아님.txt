@@ -1,0 +1,70 @@
+## function 키우드 대신 () => 로 함수를 만들 수 있다.
+
+var 함수 = () => {
+}
+함수();
+
+
+## 함수는 그냥 쓰는 문법이 아니다!
+1. 코드를 기능으로 묶고 싶을 때 사용
+2. 입출력하는 기능을 만들고 싶을 때 사용
+
+ 
+
+## ArrowFunction 장점
+1. 입출력 기능을 만들 때 보기 쉬움 ( 직관적 )
+2. 파라미터가 1개면 소괄호 생략 가능
+3. 코드 한줄이면 중괄호도 생략 가능
+    var 함수 = (a) => {return a + 10;}
+    var 함수 = a => a + 10;
+
+
+
+## ArrowFunction 예시
+1. forEach 콜백함수
+
+[1,2,3,4].forEach(function(a){
+    console.log(a);
+});
+
+[1,2,3,4].forEach(a=> console.log(a))
+
+
+2. 이벤트리스너 / 오브젝트 안의 함수
+- Arrow Function은 바깥에 있던 THIS 값을 그대로 사용한다.
+- 이벤트리스너의 this 는 e.currentTarget 을, 오브젝트안의 함수 (메소드) 의 this는 호출한 오브젝트를 의미하므로 
+  arrow function 을 쓰면 이와 다르게 외부렉시컬의 this 인 window 가 호출된다.
+- 
+
+    document.getElementById('버튼').addEventListener('click', 
+    function(e){});
+
+    document.getElementById('버튼').addEventListener('click', 
+    e => {
+        // this
+        e.currentTarget;
+        // e.currentTarget 을 쓰면 arrow Func 을 써도 this 와 동일하게 쓸 수 있다.
+    });
+
+
+
+    var 오브젝트 = {
+        함수 : () =>{
+            console.log(this);
+        }
+    }
+
+
+
+## 응용
+
+<button id="버튼">버튼이에요</button>
+<script>
+document.getElementById('버튼').addEventListener('click', function(){
+    
+    console.log(this.innerHTML) ---> '버튼이에요'
+    //setTimeout(function(console.log(this.innerHTML)     ){}, 1000);  ----> undefined   :(
+    setTimeout(()=>console.log(this.innerHTML), 1000);                 ----> '버튼이에요' :)
+
+});
+</script>
