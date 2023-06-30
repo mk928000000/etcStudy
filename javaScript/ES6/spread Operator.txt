@@ -1,0 +1,53 @@
+## Spread Operator ...
+1. array 에 붙이면 대괄호를 제거해서 나열해준다.
+
+    var 어레이 = ['hello','world'];
+    console.log (...어레이);  --> 'hello','world'
+
+2. 문자열에 붙이면 해체시켜 나열해준다.
+
+    var 문자 = 'hello';
+    console.log(...문자);     --> 'h','e','l','l','o'
+
+
+
+    var a = [1,2,3];
+    var b = [4,5];
+    var c= [...a, ...b];
+    console.log(c);          --> 1,2,3,4,5
+
+3. 오브젝트에 붙이면 중괄호를 제거해서 나열해준다.
+
+
+
+
+## 사용 용도
+1. 어레이 합치기 (Deep Copy)   
+
+- 등호 사용 시 참조를 복사하는거라 a의 값을 공유한다.
+
+    var a= [1,2,3];
+    var b = a;
+    a[3] = 4;
+    console.log(a);         --> 1,2,3,4
+    console.log(b);         --> 1,2,3,4
+
+
+-  독립된 값을 갖는 단독 array 가 생긴다. 풀어해쳤다가, 새로운 array 에 넣는 것.
+
+    var a = [1,2,3];
+    var b = [...a];
+    a[3]= 4;
+    console.log(a);         --> 1,2,3,4
+    console.log(b);         --> 1,2,3
+
+
+
+
+2. 오브젝트 합치기 (Deep copy)    
+
+var o1 = {a:1, b: 2};
+var o2 = {...o1, c: 3};
+// 주의 : var o2 = {a:2, ...o1}; ---> {a:1, b:2};
+// 값 중복이 발생되면 가장 뒤에 있는것을 적용한다.
+console.log(o2);
